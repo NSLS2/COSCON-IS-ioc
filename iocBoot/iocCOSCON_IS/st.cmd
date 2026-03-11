@@ -1,20 +1,20 @@
-#!../../bin/linux-x86_64/matsusada_R4K
+#!../../bin/linux-x86_64/COSCON_IS
 
 <xf31id1-lab3-ioc1-netsetup.cmd
 
 epicsEnvSet("ENGINEER",  "C. Engineer")
 epicsEnvSet("LOCATION",  "LAB3")
 
-epicsEnvSet("IOCNAME",   "r4k")
+epicsEnvSet("IOCNAME",   "coscon_is")
 epicsEnvSet("SYS",       "XF:31ID1-BI")
-epicsEnvSet("DEV",       "{PW:1}")
+epicsEnvSet("DEV",       "{PW:2}")
 epicsEnvSet("IOC_SYS",   "XF:31ID1-CT")
 epicsEnvSet("IOC_DEV",   "{IOC:$(IOCNAME)}")
-epicsEnvSet("MODEL", "R4K_80")
+epicsEnvSet("MODEL", "COSCON_IS")
 epicsEnvSet("CHAN", 0)
 
-epicsEnvSet("PORT","matsu-px")
-epicsEnvSet("HOST","10.69.57.80:10001")
+epicsEnvSet("PORT","coscon-is")
+epicsEnvSet("HOST","10.69.59.99:2005")
 
 epicsEnvSet("IOC_PREFIX", "$(IOC_SYS)$(IOC_DEV)")
 
@@ -23,8 +23,8 @@ epicsEnvSet("IOC_PREFIX", "$(IOC_SYS)$(IOC_DEV)")
 cd "${TOP}"
 
 ## Register all support components
-dbLoadDatabase("dbd/matsusada_R4K.dbd")
-matsusada_R4K_registerRecordDeviceDriver pdbbase
+dbLoadDatabase("dbd/COSCON_IS.dbd")
+COSCON_IS_registerRecordDeviceDriver pdbbase
 
 ## Streamdevice Protocol Path
 epicsEnvSet ("STREAM_PROTOCOL_PATH", "${TOP}/protocols")

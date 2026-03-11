@@ -1,4 +1,4 @@
-/* matsusada_R4KMain.cpp */
+/* COSCON_ISMain.cpp */
 /* Author:  Marty Kraimer Date:    17MAR2000 */
 
 #include <stddef.h>

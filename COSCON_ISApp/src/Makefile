@@ -9,10 +9,10 @@ include $(TOP)/configure/CONFIG
 # Build the IOC application
 
 PROD_IOC = COSCON_IS
-# matsusada_R4K.dbd will be created and installed
+# COSCON_IS.dbd will be created and installed
 DBD += COSCON_IS.dbd
 
-# matsusada_R4K.dbd will be made up from these files:
+# COSCON_IS.dbd will be made up from these files:
 COSCON_IS_DBD += base.dbd
 
 COSCON_IS_DBD += calc.dbd
@@ -34,7 +34,7 @@ COSCON_IS_DBD += status.dbd
 # Add all the support libraries needed by this IOC
 #COSCON_IS_LIBS += xxx
 
-# COSCON_IS_registerRecordDeviceDriver.cpp derives from matsusada_R4K.dbd
+# COSCON_IS_registerRecordDeviceDriver.cpp derives from COSCON_IS.dbd
 COSCON_IS_SRCS += COSCON_IS_registerRecordDeviceDriver.cpp
 COSCON_IS_SRCS += status.c
 
@@ -44,7 +44,7 @@ COSCON_IS_SRCS_vxWorks += -nil-
 
 
 # Add support from base/src/vxWorks if needed
-#matsusada_R4K_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
+#COSCON_IS_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 # Finally link to the EPICS Base libraries
 COSCON_IS_LIBS += $(EPICS_BASE_IOC_LIBS)

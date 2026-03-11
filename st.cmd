@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd iocBoot/iocmatsusada_R4K && ./st.cmd
+cd iocBoot/iocCOSCON_IS && ./st.cmd

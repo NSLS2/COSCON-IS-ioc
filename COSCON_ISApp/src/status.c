@@ -77,8 +77,8 @@ static long aSub_COSCON_IS_STS_Proc(aSubRecord* pasub)
 
 /* Register these symbols for use by IOC code: */
 epicsExportAddress(int, subDebug);
-epicsRegisterFunction(aSub_R4K_80_STS_Init);
-epicsRegisterFunction(aSub_R4K_80_STS_Proc);
+epicsRegisterFunction(aSub_COSCON_IS_STS_Init);
+epicsRegisterFunction(aSub_COSCON_IS_STS_Proc);
 
 
 // static long aSubMKSPrReadInit(aSubRecord* pasub)
