@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-10-24 14:08:22 by dgavrilov-->
+<display version="2.0.0">
+  <name>Display</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Example for 'matsusada_R4K.bob'</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_6</name>
+    <actions>
+      <action type="open_display">
+        <description>Matsusada R4K</description>
+        <file>matsusada_R4K.bob</file>
+        <macros>
+          <Sys>XF:31ID1-BI</Sys>
+          <Dev>{PW:1}</Dev>
+          <IocSys>XF:31ID1-CT</IocSys>
+          <IocDev>{IOC:r4k}</IocDev>
+          <Name>Matsusada R4K</Name>
+          <Title>Matsusada R4K $(Sys)$(Dev)</Title>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text>Matsusada R4K</text>
+    <x>290</x>
+    <y>240</y>
+    <width>224</width>
+    <foreground_color>
+      <color name="Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+</display>

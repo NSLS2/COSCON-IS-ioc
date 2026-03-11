@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-10-24 14:01:27 by dgavrilov-->
+<display version="2.0.0">
+  <name>$(Name)</name>
+  <macros>
+    <TITLE>$(TITLE=$(Title))</TITLE>
+  </macros>
+  <width>880</width>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container_24</name>
+    <file>../../common/title_880.bob</file>
+    <width>880</width>
+    <height>50</height>
+    <resize>2</resize>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Protection</name>
+    <x>148</x>
+    <y>254</y>
+    <width>560</width>
+    <height>110</height>
+    <widget type="textupdate" version="2.0.0">
+      <name>cd2bb14d</name>
+      <pv_name>$(Sys)$(Dev)OVP-RB</pv_name>
+      <x>306</x>
+      <y>12</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>33f331d9</name>
+      <pv_name>$(Sys)$(Dev)OCP-RB</pv_name>
+      <x>306</x>
+      <y>42</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>911b82eb</name>
+      <pv_name>$(Sys)$(Dev)OVP</pv_name>
+      <x>184</x>
+      <y>12</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>d9693f6c</name>
+      <pv_name>$(Sys)$(Dev)OCP</pv_name>
+      <x>184</x>
+      <y>42</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>069ad2a9</name>
+      <text>Over Voltage Protection RBV</text>
+      <x>61</x>
+      <y>12</y>
+      <width>110</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>262d79dd</name>
+      <text>Over Current Protection</text>
+      <x>61</x>
+      <y>42</y>
+      <width>110</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Control</name>
+    <x>148</x>
+    <y>72</y>
+    <width>560</width>
+    <height>180</height>
+    <widget type="label" version="2.0.0">
+      <name>bcd87d6d</name>
+      <text>Output enable</text>
+      <x>21</x>
+      <y>16</y>
+      <width>150</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>dfcbb83e</name>
+      <pv_name>$(Sys)$(Dev)OUTPUT</pv_name>
+      <x>161</x>
+      <y>16</y>
+      <width>150</width>
+      <height>20</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <items>
+        <item>Item 1</item>
+        <item>Item 2</item>
+      </items>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>d75f1b2d</name>
+      <pv_name>$(Sys)$(Dev)OUTPUT-RB</pv_name>
+      <x>341</x>
+      <y>16</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>16e4fb08_3</name>
+      <text>Measured</text>
+      <x>358</x>
+      <y>57</y>
+      <width>90</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>b8a4738d</name>
+      <pv_name>$(Sys)$(Dev)V</pv_name>
+      <x>349</x>
+      <y>82</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Vacuum" red="225" green="235" blue="205">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>d0d5e894</name>
+      <pv_name>$(Sys)$(Dev)I</pv_name>
+      <x>349</x>
+      <y>112</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="Vacuum" red="225" green="235" blue="205">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>16e4fb08_2</name>
+      <text>Readback</text>
+      <x>237</x>
+      <y>57</y>
+      <width>90</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>fef3a57d_1</name>
+      <pv_name>$(Sys)$(Dev)V:SP-RB</pv_name>
+      <x>225</x>
+      <y>82</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>a0d9a281</name>
+      <pv_name>$(Sys)$(Dev)I:SP-RB</pv_name>
+      <x>225</x>
+      <y>112</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>16e4fb08_1</name>
+      <text>Setpoint</text>
+      <x>123</x>
+      <y>57</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>5f79622a</name>
+      <pv_name>$(Sys)$(Dev)V:SP</pv_name>
+      <x>102</x>
+      <y>82</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>0b114743</name>
+      <pv_name>$(Sys)$(Dev)I:SP</pv_name>
+      <x>102</x>
+      <y>112</y>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>16e4fb08</name>
+      <text>Voltage</text>
+      <x>22</x>
+      <y>82</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>b665e15b</name>
+      <text>Current</text>
+      <x>22</x>
+      <y>112</y>
+      <width>60</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="187" green="187" blue="187">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>asynRecord.opi</file>
+          <macros>
+            <P>$(IocSys)</P>
+            <R>$(IocDev)Asyn</R>
+          </macros>
+          <target>tab</target>
+        </action>
+      </actions>
+      <text>Asyn</text>
+      <x>420</x>
+      <y>2</y>
+      <height>20</height>
+      <foreground_color>
+        <color name="Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="ButtonFG" red="180" green="180" blue="180">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Status</name>
+    <x>148</x>
+    <y>364</y>
+    <width>560</width>
+    <height>210</height>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>CF - Output cut off</text>
+      <x>45</x>
+      <y>14</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>CO - Output enable</text>
+      <x>45</x>
+      <y>36</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>LO - Local mode</text>
+      <x>46</x>
+      <y>58</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>RM - Remote mode</text>
+      <x>46</x>
+      <y>80</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>CC - Constant current mode</text>
+      <x>45</x>
+      <y>102</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>CV - Constant voltage mode</text>
+      <x>45</x>
+      <y>123</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>OVP - Over voltage protection</text>
+      <x>307</x>
+      <y>15</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>OCP - Over current protection</text>
+      <x>307</x>
+      <y>35</y>
+      <width>200</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>OT - Over temperature protection</text>
+      <x>307</x>
+      <y>57</y>
+      <width>240</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_10</name>
+      <text>ACF - AC input fault</text>
+      <x>308</x>
+      <y>78</y>
+      <width>240</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>RS - Sense reverse connect</text>
+      <x>307</x>
+      <y>100</y>
+      <width>240</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_12</name>
+      <text>LD - Inter Lock off</text>
+      <x>308</x>
+      <y>122</y>
+      <width>240</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>XF:31ID1-BI{PW:1}STS</pv_name>
+      <x>183</x>
+      <y>149</y>
+      <width>250</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_13</name>
+      <text>Status string:</text>
+      <x>84</x>
+      <y>149</y>
+      <width>121</width>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>Byte Monitor</name>
+      <pv_name>XF:31ID1-BI{PW:1}STS:BITS</pv_name>
+      <x>12</x>
+      <y>12</y>
+      <width>21</width>
+      <height>130</height>
+      <numBits>6</numBits>
+      <bitReverse>true</bitReverse>
+      <horizontal>false</horizontal>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>Byte Monitor_1</name>
+      <pv_name>XF:31ID1-BI{PW:1}STS:BITS</pv_name>
+      <x>272</x>
+      <y>12</y>
+      <width>21</width>
+      <height>130</height>
+      <startBit>6</startBit>
+      <numBits>6</numBits>
+      <bitReverse>true</bitReverse>
+      <horizontal>false</horizontal>
+    </widget>
+  </widget>
+</display>

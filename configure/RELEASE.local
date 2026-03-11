@@ -1,0 +1,5 @@
+AUTOSAVE=/usr/lib/epics
+DEVIOCSTATS=/usr/lib/epics
+RECCASTER=/usr/lib/epics
+SUPPORT=/usr/lib/epics
+EPICS_BASE = /usr/lib/epics

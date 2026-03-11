@@ -1,2 +1,3 @@
-# COSCON-IS-ioc
-IOC for COSCON IS power supply (Component Smart Control for Ion Source)
+# matsusada-R4K-ioc
+
+EPICS IOC support for Matsusada R4K-80 power supply.

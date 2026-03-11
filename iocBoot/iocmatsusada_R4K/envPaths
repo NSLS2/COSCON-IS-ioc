@@ -1,0 +1,7 @@
+epicsEnvSet("IOC","iocmatsusada_R4K")
+epicsEnvSet("TOP","/nsls2/users/dgavrilov/repos/matsusada-R4K-ioc")
+epicsEnvSet("AUTOSAVE","/usr/lib/epics")
+epicsEnvSet("DEVIOCSTATS","/usr/lib/epics")
+epicsEnvSet("RECCASTER","/usr/lib/epics")
+epicsEnvSet("SUPPORT","/usr/lib/epics")
+epicsEnvSet("EPICS_BASE","/usr/lib/epics")
