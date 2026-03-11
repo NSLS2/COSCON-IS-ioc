@@ -1,0 +1,15 @@
+/autosave/req/
+/autosave/save/
+/as/req/
+/as/save/
+.vscode/
+records.dbl
+/iocBoot/COSCON_IS/envPaths
+/config
+*.swo
+*.swp
+O.*
+db/
+bin/
+dbd/
+*.local
