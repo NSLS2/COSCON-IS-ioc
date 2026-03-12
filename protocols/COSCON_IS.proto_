@@ -1,0 +1,86 @@
+OutTerminator = CR;
+InTerminator = CR;
+LockTimeout = 5000;
+ReplyTimeout = 1000;
+ReadTimeout = 100;
+WriteTimeout = 100;
+ExtraInput = Ignore;
+
+init {
+	# Enable REMOTE control mode
+	out "#\$1 REN";
+}
+
+# Voltage readback
+ReadV {
+    out "#\$1 VGET";
+    in "VGET=%f";
+}
+
+# Current readback
+ReadI {
+    out "#\$1 IGET";
+    in "IGET=%f";
+}
+
+# Voltage setpoint - write
+WriteVSP {
+    out "#\$1 VSET %f";
+}
+
+# Voltage setpoint - read
+ReadVSP {
+    out "#\$1 VSET?";
+    in "VSET=%f";
+}
+
+# Current setpoint - write
+WriteISP {
+    out "#\$1 ISET %f";
+}
+
+# Current setpoint - read
+ReadISP {
+    out "#\$1 ISET?";
+    in "ISET=%f";
+}
+
+# OVP (Over Voltage Protection) - write
+WriteOVP {
+    out "#\$1 OVPSET %f";
+}
+
+# OVP (Over Voltage Protection) - read
+ReadOVP {
+    out "#\$1 OVPSET?";
+    in "OVPSET=%f";
+}
+
+# OCP (Over Current Protection) - write
+WriteOCP {
+    out "#\$1 OCPSET %f";
+}
+
+# OCP (Over Current Protection) - read
+ReadOCP {
+    out "#\$1 OCPSET?";
+    in "OCPSET=%f";
+}
+
+# Output Enable - write
+WriteOutputEnable {
+    out "#\$1 SW%d";
+}
+
+# Output Enable - read
+ReadOutputEnable {
+    out "#\$1 SW?";
+    in "SW%d";
+}
+
+# Status (Read the whole string)
+ReadSTS {
+    out "#\$1 STS";
+    in "#\$1 %[A-Z ]";
+}
+

@@ -1,203 +1,121 @@
-record(bo, "$(Sys)$(Dev)Init-Cmd")
+record(stringin, "$(Sys)$(Dev)Info")
+{
+	field(DTYP, "stream")
+	field(DESC, "Info")
+	field(INP,  "@COSCON_IS.proto ReadInfo($(Chan)) $(PORT)")
+    field(PINI, "1")
+}
+
+
+record(longin, "$(Sys)$(Dev)Uptime")
+{
+	field(DTYP, "stream")
+	field(DESC, "Uptime")
+	field(INP,  "@COSCON_IS.proto ReadUptime($(Chan)) $(PORT)")
+	field(EGU,  "seconds")
+	#field(SCAN, "1 second")
+    field(PINI, "1")
+}
+
+
+record(stringin, "$(Sys)$(Dev)DeviceType")
+{
+	field(DTYP, "stream")
+	field(DESC, "Device type")
+	field(INP,  "@COSCON_IS.proto ReadDeviceType($(Chan)) $(PORT)")
+    field(PINI, "1")
+}
+
+
+record(stringin, "$(Sys)$(Dev)FirmwareVersion")
+{
+	field(DTYP, "stream")
+	field(DESC, "Firmware version")
+	field(INP,  "@COSCON_IS.proto ReadFirmwareVersion($(Chan)) $(PORT)")
+    field(PINI, "1")
+}
+
+
+record(stringin, "$(Sys)$(Dev)DeviceSerial")
+{
+	field(DTYP, "stream")
+	field(DESC, "Device serial")
+	field(INP,  "@COSCON_IS.proto ReadDeviceSerial($(Chan)) $(PORT)")
+    field(PINI, "1")
+}
+
+
+record(bo, "$(Sys)$(Dev)Identify")
 {
     field(DTYP, "stream")
-    field(DESC, "Init")
-    field(OUT,  "@COSCON_IS.proto init($(Chan)) $(PORT)")
+    field(DESC, "Identify")
+    field(OUT,  "@COSCON_IS.proto WriteIdentify($(Chan)) $(PORT)")
+    field(ZNAM, "OFF")    # Zero state name
+    field(ONAM, "ON")     # One state name
+}
+
+
+record(bi, "$(Sys)$(Dev)Identify_RBV")
+{
+    field(DTYP, "stream")
+    field(DESC, "Identify RB")
+    field(INP,  "@COSCON_IS.proto ReadIdentify($(Chan)) $(PORT)")
+    field(ZNAM, "OFF")    # Zero state name
+    field(ONAM, "ON")     # One state name
+    #field(SCAN, "1 second")
     field(PINI, "1")
 }
 
-# Voltage readback
-record(ai, "$(Sys)$(Dev)V")
-{
-	field(DTYP, "stream")
-	field(DESC, "Voltage")
-	field(INP,  "@COSCON_IS.proto ReadV($(Chan)) $(PORT)")
-	field(EGU,  "V")
-	field(PREC, 3)
-	field(SCAN, ".1 second")
-}
 
-# Current readback
-record(ai, "$(Sys)$(Dev)I")
+record(stringin, "$(Sys)$(Dev)Status")
 {
 	field(DTYP, "stream")
-	field(DESC, "Current")
-	field(INP,  "@COSCON_IS.proto ReadI($(Chan)) $(PORT)")
-	field(EGU,  "A")
-	field(PREC, 3)
-	field(SCAN, ".1 second")
-}
-
-# Voltage setpoint
-record(ao, "$(Sys)$(Dev)V:SP")
-{
-	field(DTYP, "stream")
-	field(DESC, "Voltage SP")
-	field(OUT,  "@COSCON_IS.proto WriteVSP($(Chan)) $(PORT)")
-	field(EGU,  "V")
-	field(PREC, 3)
+	field(DESC, "Status")
+	field(INP,  "@COSCON_IS.proto ReadStatus($(Chan)) $(PORT)")
+    #field(SCAN, "1 second")
     field(PINI, "1")
-    info(autosaveFields, "VAL")    
 }
 
-# Voltage setpoint RB
-record(ai, "$(Sys)$(Dev)V:SP-RB")
+# Write 1 to switch to Standby mode
+record(bo, "$(Sys)$(Dev)ModeSwitchToStandby")
 {
-	field(DTYP, "stream")
-	field(DESC, "Voltage SP RBV")
-	field(INP,  "@COSCON_IS.proto ReadVSP($(Chan)) $(PORT)")
-	field(EGU,  "V")
-	field(PREC, 3)
-	field(SCAN, ".1 second")
+    field(DESC, "Enable STANDBY mode")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL, 0)
+    field(FLNK, "$(Sys)$(Dev)ModeSwitchToStandby_")
 }
 
-# Current setpoint
-record(ao, "$(Sys)$(Dev)I:SP")
+record(calcout, "$(Sys)$(Dev)ModeSwitchToStandby_")
 {
-	field(DTYP, "stream")
-	field(DESC, "Current SP")
-	field(OUT,  "@COSCON_IS.proto WriteISP($(Chan)) $(PORT)")
-	field(EGU,  "A")
-	field(PREC, 3)
-    field(PINI, "1")
-    info(autosaveFields, "VAL")    
+    field(DTYP, "stream")
+    field(DESC, "Switch to STANDBY command")
+    field(INPA, "$(Sys)$(Dev)ModeSwitchToStandby")
+    field(CALC, "A")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use CALC")
+    field(OUT,  "@COSCON_IS.proto WriteSwitchToStandby($(Chan)) $(PORT)")
 }
 
-# Current setpoint RB
-record(ai, "$(Sys)$(Dev)I:SP-RB")
+
+# Write 1 to switch to OFF mode
+record(bo, "$(Sys)$(Dev)ModeSwitchToOff")
 {
-	field(DTYP, "stream")
-	field(DESC, "Current SP RBV")
-	field(INP,  "@COSCON_IS.proto ReadISP($(Chan)) $(PORT)")
-	field(EGU,  "A")
-	field(PREC, 3)
-	field(SCAN, ".1 second")
+    field(DESC, "Enable OFF mode")
+    field(ZNAM, "OFF")
+    field(ONAM, "ON")
+    field(VAL, 0)
+    field(FLNK, "$(Sys)$(Dev)ModeSwitchToOff_")
 }
 
-# Over Voltage Protection (OVP)
-record(ao, "$(Sys)$(Dev)OVP")
+record(calcout, "$(Sys)$(Dev)ModeSwitchToOff_")
 {
-	field(DTYP, "stream")
-	field(DESC, "Over Voltage Protection")
-	field(OUT,  "@COSCON_IS.proto WriteOVP($(Chan)) $(PORT)")
-	field(EGU,  "V")
-	field(PREC, 3)
-    field(PINI, "1")
-    info(autosaveFields, "VAL")    
+    field(DTYP, "stream")
+    field(DESC, "Switch to OFF command")
+    field(INPA, "$(Sys)$(Dev)ModeSwitchToOff")
+    field(CALC, "A")
+    field(OOPT, "When Non-zero")
+    field(DOPT, "Use CALC")
+    field(OUT,  "@COSCON_IS.proto WriteSwitchToOff($(Chan)) $(PORT)")
 }
 
-# Over Voltage Protection (OVP) RB
-record(ai, "$(Sys)$(Dev)OVP-RB")
-{
-	field(DTYP, "stream")
-	field(DESC, "Over Voltage Protection RBV")
-	field(INP,  "@COSCON_IS.proto ReadOVP($(Chan)) $(PORT)")
-	field(EGU,  "V")
-	field(PREC, 3)
-	field(SCAN, ".1 second")
-}
-
-# Over Current Protection (OCP)
-record(ao, "$(Sys)$(Dev)OCP")
-{
-	field(DTYP, "stream")
-	field(DESC, "Over Current Protection")
-	field(OUT,  "@COSCON_IS.proto WriteOCP($(Chan)) $(PORT)")
-	field(EGU,  "A")
-	field(PREC, 3)
-    field(PINI, "1")
-    info(autosaveFields, "VAL")    
-}
-
-# Over Current Protection (OCP) RB
-record(ai, "$(Sys)$(Dev)OCP-RB")
-{
-	field(DTYP, "stream")
-	field(DESC, "Over Current Protection RBV")
-	field(INP,  "@COSCON_IS.proto ReadOCP($(Chan)) $(PORT)")
-	field(EGU,  "A")
-	field(PREC, 3)
-	field(SCAN, ".1 second")
-}
-
-
-# Output enable
-record(bo, "$(Sys)$(Dev)OUTPUT")
-{
-	field(DTYP, "stream")
-	field(DESC, "Output enable")
-    field(ZNAM, "Off")
-    field(ONAM, "On")    
-	field(OUT,  "@COSCON_IS.proto WriteOutputEnable($(Chan)) $(PORT)")
-    field(PINI, "1")
-    info(autosaveFields, "VAL")    
-}
-
-# Output enable RB
-record(bi, "$(Sys)$(Dev)OUTPUT-RB")
-{
-	field(DTYP, "stream")
-	field(DESC, "Output enable RBV")
-    field(ZNAM, "Off")
-    field(ONAM, "On")    
-	field(INP,  "@COSCON_IS.proto ReadOutputEnable($(Chan)) $(PORT)")
-	field(SCAN, ".1 second")
-}
-
-# Status string. The string contains status codes separated by SP.
-# EXAMPLE: CO RM CV
-# STATUS CODES:
-# CF - Output cut off status
-# CO - Output enable status
-# LO - Local mode
-# RM - Remote mode
-# CC - Constant current mode
-# CV - Constant voltage mode
-# OVP - Over voltage protection
-# OCP - Over current protection
-# OT - Over temperature protection
-# ACF - AC input fault
-# RS - Sense reverse connect
-# LD - Inter Lock off
-record(stringin, "$(Sys)$(Dev)STS")
-{
-	field(DTYP, "stream")
-	field(DESC, "Device status")
-	field(INP,  "@COSCON_IS.proto ReadSTS($(Chan)) $(PORT)")
-	field(SCAN, ".1 second")
-    field(FLNK, "$(Sys)$(Dev)STS:BITS_")	
-}
-
-# Convert status string to status BITS
-record(aSub, "$(Sys)$(Dev)STS:BITS_")
-{
-	field(DESC, "Device status (BITS)")
-	field(INAM, "aSub_COSCON_IS_STS_Init")
-	field(SNAM, "aSub_COSCON_IS_STS_Proc")
-	field(INPA, "$(Sys)$(Dev)STS")
-    field(FTA, "STRING")
-    field(NOA, "50")
-	field(OUTA, "$(Sys)$(Dev)STS:BITS")
-	field(FTVA, "SHORT")
-	field(NOVA, "1")
-    field(FLNK, "$(Sys)$(Dev)STS:BITS")	
-}
-
-# Status bits:
-# Bit 0:  CF - Output cut off status
-# Bit 1:  CO - Output enable status
-# Bit 2:  LO - Local mode
-# Bit 3:  RM - Remote mode
-# Bit 4:  CC - Constant current mode
-# Bit 5:  CV - Constant voltage mode
-# Bit 6:  OVP - Over voltage protection
-# Bit 7:  OCP - Over current protection
-# Bit 8:  OT - Over temperature protection
-# Bit 9:  ACF - AC input fault
-# Bit 10: RS - Sense reverse connect
-# Bit 11: LD - Inter Lock off
-record(ai, "$(Sys)$(Dev)STS:BITS")
-{
-	field(DESC, "Device status (BITS)")
-	field(INP,  "$(Sys)$(Dev)STS:BITS_.VALA")
-}

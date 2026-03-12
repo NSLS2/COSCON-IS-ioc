@@ -1,6 +1,7 @@
 #!../../bin/linux-x86_64/COSCON_IS
 
-<xf31id1-lab3-ioc1-netsetup.cmd
+#<xf31id1-lab3-ioc1-netsetup.cmd
+<xf31id1-inst-ioc1-netsetup.cmd
 
 epicsEnvSet("ENGINEER",  "C. Engineer")
 epicsEnvSet("LOCATION",  "LAB3")
@@ -10,7 +11,7 @@ epicsEnvSet("SYS",       "XF:31ID1-BI")
 epicsEnvSet("DEV",       "{PW:2}")
 epicsEnvSet("IOC_SYS",   "XF:31ID1-CT")
 epicsEnvSet("IOC_DEV",   "{IOC:$(IOCNAME)}")
-epicsEnvSet("MODEL", "COSCON_IS")
+epicsEnvSet("MODEL",     "COSCON_IS")
 epicsEnvSet("CHAN", 0)
 
 epicsEnvSet("PORT","coscon-is")
@@ -30,7 +31,12 @@ COSCON_IS_registerRecordDeviceDriver pdbbase
 epicsEnvSet ("STREAM_PROTOCOL_PATH", "${TOP}/protocols")
 
 
-drvAsynIPPortConfigure("$(PORT)", "$(HOST)")
+drvAsynIPPortConfigure("$(PORT)", "$(HOST) UDP")
+
+## Enable ASYN tracing for StreamDevice debugging
+asynSetTraceMask("$(PORT)", 0, 0x9)   # Enable ERROR and FLOW
+asynSetTraceIOMask("$(PORT)", 0, 0x2) # Enable ASCII output
+var streamDebug 1                      # Enable StreamDevice debug messages
 
 ## Load record instances
 dbLoadRecords("db/${MODEL}.db", "Sys=${SYS},Dev=${DEV},Chan=${CHAN},PORT=${PORT}")
